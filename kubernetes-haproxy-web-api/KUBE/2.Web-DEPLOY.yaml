@@ -1,0 +1,22 @@
+# WEB DEPLOYMENT.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  labels:
+    app: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-web
+  template:
+    metadata:
+      labels:
+        app: pod-web
+    spec:
+      containers:
+      - name: web-container
+        image: asfiyask/kubernetes-haproxy-service:v1.b
+        ports:
+        - containerPort: 80

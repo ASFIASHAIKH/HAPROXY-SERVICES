@@ -1,0 +1,13 @@
+# NODE2 SERVICE.YAML
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: pod-web
+  type: ClusterIP

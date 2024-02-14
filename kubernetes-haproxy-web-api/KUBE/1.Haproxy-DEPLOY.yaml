@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: haproxy-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-haproxy
+  template:
+    metadata:
+      labels:
+        app: pod-haproxy
+    spec:
+      containers:
+        - name: haproxy-cont
+          image: asfiyask/haproxy
+          ports:
+          - containerPort: 8080
+          - containerPort: 8404

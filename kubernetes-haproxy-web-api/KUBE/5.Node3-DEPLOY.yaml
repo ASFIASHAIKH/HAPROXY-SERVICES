@@ -1,0 +1,22 @@
+# NODE3 DEPLOYMENT.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node3-deployment
+  labels:
+    app: node3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-node3
+  template:
+    metadata:
+      labels:
+        app: pod-node3
+    spec:
+      containers:
+      - name: node3-cont
+        image: asfiyask/kubernetes-haproxy-service:v1.e
+        ports:
+        - containerPort: 80

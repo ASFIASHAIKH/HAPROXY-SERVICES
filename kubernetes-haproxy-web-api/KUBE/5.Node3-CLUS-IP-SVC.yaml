@@ -1,0 +1,13 @@
+# NODE3 SERVICE.YAML
+apiVersion: v1
+kind: Service
+metadata:
+  name: api3-web
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: pod-node3
+  type: ClusterIP

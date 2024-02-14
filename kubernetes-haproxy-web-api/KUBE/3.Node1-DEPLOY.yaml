@@ -1,0 +1,22 @@
+# NODE2 DEPLOYMENT.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node1-deployment
+  labels:
+    app: node1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-node1
+  template:
+    metadata:
+      labels:
+        app: pod-node1
+    spec:
+      containers:
+      - name: node1-cont
+        image: asfiyask/kubernetes-haproxy-service:v1.c
+        ports:
+        - containerPort: 80
